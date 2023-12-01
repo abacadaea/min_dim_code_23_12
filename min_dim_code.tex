@@ -1,0 +1,30 @@
+\section{Minimum Dimension Code (Private Linear Computation)}
+
+\begin{question}
+  For given $D$ and $M$ and $L$.
+  Design a code of length $n$ with minimum dinesion such that for any $D$-subset of coordinates $I$, there exists $L$ ``MDS-coded'' codewords $c_1,\dots,c_L$ of weight $D\le w(c_i)\le D+M$  such that $I\subset \supp(c_i)$ for all $i\in[L]$ and $(c_1)_I,\dots,(c_L)_I$ are linearly independent.
+\end{question}
+
+\begin{theorem}
+  Dimension $\ceil{n/2}+1$  is achievable and is tight.
+
+  In general, dimension 
+  \begin{align}
+  \ceil{(n-D-M)/(1+\ceil{M/D})}+1 
+  \label{eq:opt?}
+  \end{align}
+  is achievable. 
+  
+  Anoosheh believes this is tight for $D\le M$.
+  \label{}
+\end{theorem}
+
+\begin{enumerate}
+  \item For $L=1$, $D\le M$, can you show the bound \eqref{eq:opt?}, at leats asymptotically?
+
+  \item For $L=1$, $D>M$, the bound is $n-D-M$, which is $n-O(1)$. Can you get a construction with dimension $n-\omega(1)$? For $D=2,M=1$, this is possible over $\mathbb{F}_2$ by taking the Hamming code.
+    What about other fields? What about arbitrary $D>M$? (In particular for $D$ arbitrary and $M=1$).
+
+  \item $L$ larger.
+\end{enumerate}
+
