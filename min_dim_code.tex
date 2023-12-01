@@ -28,3 +28,34 @@
   \item $L$ larger.
 \end{enumerate}
 
+
+\section{$D>M$.}
+
+\begin{theorem}
+  Let $q$ be a prime power.
+  For $D>M$, for infinitely many $n$, there exists a $\mathbb{F}_q$ linear code $C$ of dimension $n-\log_q(n/D)$ such that, for any set of coordinates $I\subset[n]$ of size $D$, there exists a codeword $c\in C$ of weight $D\le \wt(c)\le D+1$ such that $I\subset \supp(c)$.
+  \label{}
+\end{theorem}
+\begin{proof}
+  Let $r$ be a positive integer and let $n=(D+1)\cdot q^r$.
+  Let $v_1,\dots,v_{q^r}$ be the vectors in $\mathbb{F}_q^r$.
+  Consider the $r\times n$ parity-check matrix $H$ whose columns are $v_1,v_1,\dots,v_{q^r},v_{q^r}$, where each $v_i$ appears with multiplicity $D+1$.
+  We claim the code with this parity check matrix has the desired property.
+
+  First, the dimension of this code is $n-r = n-\log_q(n/D)$.
+
+  Index the columns of $H$ by $\mathbb{F}_q^r\times [D]$.
+  Consider any set of indices $I\subset \mathbb{F}_q^r\times [D]$.
+  Then consider $\sum_{(i,d)\in I}^{} v_i$. This is equal to some vector $v_j\in\mathbb{F}_q^r$.
+  Because we took every vector with multiplicity $D+1$, there is some index $d'$ such that $(j,d')\notin I$.
+  Now take $c\in\mathbb{F}_q^n$ to be the vector where $c_i=1$ for $i\in I$ and $c_{(j,d')}=-1$, and $c_i=0$ elsewhere.
+  You can check that
+  \begin{align}
+    H\cdot c = \left(\sum_{(i,d)\in I}^{} v_i\right)  - v_{(j,d')}.
+    \label{}
+  \end{align}
+  so $c$ is a codeword. 
+  By construction $c$ is supported on $I\cup \{(j,d')\}$, so $c$ is our desired codeword for $I$.
+  This works for any $I$ so we are done.
+  \ryl{You can replace $D+1$ with $D-1$ easily. Probably with some more work you can get an even better bound.}
+\end{proof}
